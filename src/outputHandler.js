@@ -7,7 +7,13 @@ function createDOMCache() {
 
 const cachedDOM = createDOMCache();
 
-function createRotateController(root, container, cube) {
+function createRotateController(
+  root,
+  container,
+  cube,
+  cssRotXVarName,
+  cssRotYVarName
+) {
   let dragging = false;
   let initialPosition = {};
   let initialRotation = {};
@@ -15,8 +21,8 @@ function createRotateController(root, container, cube) {
   function getInitialBoxRotation() {
     const rootElement = root;
     const rootStyles = getComputedStyle(rootElement);
-    const xString = rootStyles.getPropertyValue("--initialRotateX");
-    const yString = rootStyles.getPropertyValue("--initialRotateY");
+    const xString = rootStyles.getPropertyValue(cssRotXVarName);
+    const yString = rootStyles.getPropertyValue(cssRotYVarName);
     const rotX = Number(xString.slice(0, -3));
     const rotY = Number(yString.slice(0, -3));
     return { rotX, rotY };
@@ -46,11 +52,11 @@ function createRotateController(root, container, cube) {
 
     const rootElement = root;
     rootElement.style.setProperty(
-      "--initialRotateX",
+      cssRotXVarName,
       `${delta.y + initialRotation.rotX}deg`
     );
     rootElement.style.setProperty(
-      "--initialRotateY",
+      cssRotYVarName,
       `${delta.x + initialRotation.rotY}deg`
     );
 
@@ -82,8 +88,11 @@ function createRotateController(root, container, cube) {
   };
 }
 
+// eslint-disable-next-line no-unused-vars
 const mainBoxRotateController = createRotateController(
   cachedDOM.$root,
   cachedDOM.$container,
-  cachedDOM.$box
+  cachedDOM.$box,
+  "--initialRotateX",
+  "--initialRotateY"
 );
