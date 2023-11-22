@@ -6,7 +6,7 @@ INSERT LINK HERE
 ## Dependencies Needed for This Utility
 
 1. Follow the DOM heirarchy stated below to create your 3D object.
-2. CSS variables.
+2. CSS variables for adjusting the 3D object's rotateX and rotateY values.
 
 ## How To Use This in Your Project
 
