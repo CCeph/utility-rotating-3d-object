@@ -1,7 +1,7 @@
 # Utility: Add Interactive Rotate to 3D Object
 
 If you would like to see the drag-to-rotate live, here is a link showcasing it:
-INSERT LINK HERE
+[Rotating 3D Object Showcase](https://cceph.github.io/utility-rotating-3d-object/)
 
 ## Dependencies Needed for This Utility
 
